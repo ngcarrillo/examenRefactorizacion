@@ -20,9 +20,8 @@ public class ExamenRefactorizacion {
     public static void main(String arg[]) {
         int digito = 3;
         int numeroDigitos = 0;
-        if (digito <= 0) {
-            System.out.println("Ingrese como parámetro, un numero de digitos correcto (mayor que 0): ");
-        }
+        Primos primo1 = new Primos();
+        primo1.introducirDatos(digito);
         for (int i = 1; i <= 99999; i++) {
             int auxiliar = i;
 
@@ -35,39 +34,12 @@ public class ExamenRefactorizacion {
             numeroDigitos = contador;
 
             if (numeroDigitos == digito) {
-                if (i < 4) {
-                    primo = true;
-                } else {
-                    if (i % 2 == 0) {
-                        primo = false;
-                    } else {
-                        int comparador = 0;
-                        int i1 = 1;
-                        int k = (i - 1) / 2;
-                        if (k % 2 == 0) {
-                            k--;
-                        }
 
-                        while (i1 <= k) {
-                            if (i % i1 == 0) {
-                                comparador++;
-                            }
-                            i1 += 2;
-                            if (comparador == 2) {
-                                i1 = k + 1;
-                            }
-                        }
-
-                        if (comparador == 1) {
-                            primo = true;
-                        }
-                    }
-                }
-
-                if (primo == true) {
-                    System.out.println(i);
-                }
+                primo1.comparar(i);
+                primo1.numPrimo(i);
             }
         }
+
     }
+
 }
